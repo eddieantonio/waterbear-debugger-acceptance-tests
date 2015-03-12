@@ -67,6 +67,7 @@ can be paused at.
 [AT-1A]: http://waterbearlang.com/playground.html?gist=27192efe96985464c5c3
 
 
+<a id="at2a"/>
 ## Requirement 2a: Single-step through blocks (execution stopped)
 
 ### Setup
@@ -77,25 +78,44 @@ the same script suffices for this test.
 
 [Example Script][AT-1A]
 
-### Precondition
+### Preconditions
 
 Execution is *stopped*.
 
 ### Test
 
- 1. Give input to pause the script (e.g., click the pause button).
+ 1. Give the input to step to the next block of the script (e.g., tap
+    the step button).
 
 ### Acceptance Criteria
 
- 1. Execution is started and is immediately paused on the first step
-    block.
+ 1. Execution is started and is immediately paused on the _first_ step
+    block -- whatever that may be. In the case of this test input, it is
+    the first block in the drawing context.
  2. Indicators as in [1](#at1), using the first block in the script.
 
 ## Requirement 2b: Single-step through blocks (execution paused)
 
-Load a script with at least one step block. Unlike [1](#at1), this step
-block does not have to be a continuously looping context. Regardless,
-the same script suffices for this test.
+Load a script with at least two step block.
+
+**TODO: Add a script here!**
+
+### Preconditions
+
+Execution is *stopped*.
+
+### Test
+
+ 1. As in [2b](#at2b), single-step to the first block.
+ 2. Give the input to step to the next block of the script (e.g., tap
+    the step button).
+
+### Acceptance Criterai
+
+ 1. Execution is paused on the _second_ block.
+ 2. Indicators as in [1](#at1), use the second block in the script.
+
+
 
 # Glossary
 
@@ -111,8 +131,9 @@ frozen it for a moment to inspect what's going on.
 
 <dt>stopped<dt>
 <dd>
-Execution state wherein t
-
+Execution state that wherein execution is not defined! The only way out
+is to start running. Stepping from the stopped state
+<em>conceptually</em> starts the script and immediately pauses it.
 </dd>
 
 </dl>
