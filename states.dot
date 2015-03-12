@@ -1,0 +1,24 @@
+digraph {
+    graph [rankdir=LR];
+
+    node [ shape=circle ];
+
+    stopped;
+    running;
+    paused;
+
+    START [ shape = point, label = ""];
+
+    START -> stopped;
+
+    stopped -> running  [label="start"];
+    stopped -> paused   [label="step"];
+
+    running -> stopped  [label="stop"];
+    running -> paused   [label="pause"];
+    running -> paused   [label="breakpoint"];
+
+    paused -> stopped   [label="stop"];
+    paused -> running   [label="continue"];
+    paused -> paused    [label="step"];
+}
