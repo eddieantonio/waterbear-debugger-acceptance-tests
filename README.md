@@ -2,7 +2,7 @@
 
 ## Feature list
 
-These are sorted in order of priority.
+These are sorted in order of relative priority.
 
  - [ ] Pause execution
     - [ ] while Waterbear is running a continuous task (e.g., updating
@@ -36,7 +36,7 @@ through my program.
 # The actual gorram tests
 
 
-<a id="at1"/>
+<a id="at1"></a>
 ## Requirement 1: Pause Execution
 
 ### Setup
@@ -67,7 +67,7 @@ can be paused at.
 [AT-1A]: http://waterbearlang.com/playground.html?gist=27192efe96985464c5c3
 
 
-<a id="at2a"/>
+<a id="at2a"></a>
 ## Requirement 2a: Single-step through blocks (execution stopped)
 
 ### Setup
@@ -98,7 +98,7 @@ Execution is *stopped*.
 
 Load a script with at least two step block.
 
-**TODO: Add a script here!**
+[Example Script](http://localhost:8000/playground.html?gist=f839aaf6e81db0ac5eca)
 
 ### Preconditions
 
