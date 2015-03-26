@@ -12,13 +12,13 @@ These are sorted in order of relative priority.
     - [ ] When execution is paused.
  * [ ] Set a breakpoint on a selected step blocks
      * [ ] Unset an existing breakpoint on a selected step blocks
- * [ ] Pause/step across asynchronous calls -- though this isn't a thing the user should care about
  - [ ] Pause on breakpoints
  * [ ] Resume execution once paused
+ * [ ] Pause/step across asynchronous calls -- though this isn't a thing the user should care about
  * [ ] Slow down script running if some input is active (e.g,. <kbd>shift</kbd> depressed)
  * [ ] Dynamically add elements when "paused"
- * [ ] Show the value variables as you step (like a table)
  * [ ] Show how many times a line gets called
+ * [ ] [Extra credit] Show the value variables as you step (like a table)
  * [ ] [Extra credit] Add a console (similar to the box in Xcode playgrounds)
 
 ## User stories
@@ -170,8 +170,58 @@ Execution is *stopped*,
  2. Running the script again in debugging mode does not pause prior to
     executing this block.
 
+## Requirement 4: Pause on pausepoints
 
-## Requirement 4: Pause/step across asynchronous calls
+### Setup
+
+Load a script with at least two step or context blocks. Place a
+pausepoint on a block—preferably not the first block. Ensure that this
+block is placed in an execution path that _will_ run.
+
+[Example Script](http://waterbearlang.com/playground.html?gist=e994f304fb953f1ecf6c)
+
+### Preconditions
+
+Execution is *stopped*.
+
+### Test
+
+ 1. Give the input to run/start execution.
+
+### Acceptance Criteria
+
+ 1. The blocks previous to the paused block should have run. For
+    example, in the example script, the console should have the first
+    message written, but not the second.
+ 2. Execution should be paused on the block with the pausepoint with
+    indicators as shown in [1][]. 
+
+
+## Requirement 5: Resume execution once paused
+
+### Setup
+
+Load a script with at least one block. By some means (such as stepping
+from pause—see [2a][]), be paused before executing a block.
+
+[Example Script](http://waterbearlang.com/playground.html?gist=f880cd9122673f84c622)
+
+### Preconditions
+
+Execution is *paused*. The blocks prior to the paused block should have
+been executed.
+
+### Test
+
+ 1. Give the input to resume/unpause execution.
+
+### Acceptance Criteria
+
+ 1. All blocks should have been executed. In the example script, both
+    messages should have printed.
+
+
+## Requirement 6: Pause/step across asynchronous calls
 
 ### Setup
 
@@ -200,9 +250,46 @@ Execution is *started*.
     within the asynchronous context block.
 
 
-[1]: #requirement-1-pause-execution
-[2a]: #requirement-2a-single-step-through-blocks-execution-stopped
-[3a]: #requirement-3a-set-a-pausepoint-breakpoint-on-a-selected-block
+## Requirement 7: Slow down script running if some input is active
+
+### Setup
+
+Load a script 
+
+[Example Script](http://waterbearlang.com/playground.html?gist=03b68ac36f82730aa225)
+
+### Preconditions
+
+Execution is *started*.
+
+### Test
+
+ 1. 
+
+### Acceptance Criteria
+
+ 1. 
+
+
+## Requirement 8: Dynamically add elements when paused
+
+### Setup
+
+Load a script 
+
+[Example Script](http://waterbearlang.com/playground.html?gist=03b68ac36f82730aa225)
+
+### Preconditions
+
+Execution is *started*.
+
+### Test
+
+ 1. 
+
+### Acceptance Criteria
+
+ 1. 
 
 
 # Glossary
@@ -235,3 +322,7 @@ newcomers.
 </dd>
 </dl>
 
+<!-- Cross-reference requirements. -->
+[1]: #requirement-1-pause-execution
+[2a]: #requirement-2a-single-step-through-blocks-execution-stopped
+[3a]: #requirement-3a-set-a-pausepoint-breakpoint-on-a-selected-block
