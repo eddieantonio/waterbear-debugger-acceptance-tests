@@ -37,7 +37,6 @@ through my program.
 # Tests
 
 
-<a id="at1"></a>
 ## Requirement 1: Pause Execution
 
 ### Setup
@@ -69,14 +68,14 @@ can be paused at.
 [AT-1A]: http://waterbearlang.com/playground.html?gist=27192efe96985464c5c3
 
 
-<a id="at2a"></a>
 ## Requirement 2a: Single-step through blocks (execution stopped)
 
 ### Setup
 
-Load a script with at least one step block. Unlike [1](#at1), this step
-block does not have to be a continuously looping context. Regardless,
-the same script suffices for this test.
+Load a script with at least one step block. Unlike
+[1](#requirement-1-pause-execution), this step block does not have to be
+a continuously looping context. Regardless, the same script suffices for
+this test.
 
 [Example Script][AT-1A]
 
@@ -94,7 +93,8 @@ Execution is *stopped*.
  1. Execution is started and is immediately paused on the _first_ step
     block -- whatever that may be. In the case of this test input, it is
     the first block in the drawing context.
- 2. Indicators as in [1](#at1), using the first block in the script.
+ 2. Indicators as in [1][], using the
+    first block in the script.
 
 ## Requirement 2b: Single-step through blocks (execution paused)
 
@@ -108,19 +108,20 @@ Execution is *stopped*.
 
 ### Test
 
- 1. As in [2b](#at2b), single-step to the first block.
+ 1. As in [2a][], single-step to the first block.
  2. Give the input to step to the next block of the script (e.g., tap
     the step button).
 
 ### Acceptance Criteria
 
  1. Execution is paused on the _second_ block.
- 2. Indicators as in [1](#at1), using the second block in the script.
+ 2. Indicators as in [1][], using the second block in the script.
 
 
 
-<a id="at3b"></a>
 ## Requirement 3a: Set a pausepoint (breakpoint) on a selected block
+
+### Setup
 
 Load a script with at least one step or context block.
 
@@ -146,12 +147,16 @@ Execution is *stopped*.
 
 ## Requirement 3b: Unset an existing pausepoint on a block
 
-Load a script with at least one step or context block. 
+### Setup
+
+Load a script with at least one step or context block.  Place a
+pausepoint on a step or context block as in [3a][].
+
+[Example Script](http://localhost:8000/playground.html?gist=f839aaf6e81db0ac5eca)
 
 ### Preconditions
 
-Execution is *stopped*, and a pausepoint is set on a step or context
-block as in [3b](#at3b).
+Execution is *stopped*, 
 
 ### Test
 
@@ -164,6 +169,40 @@ block as in [3b](#at3b).
     pausepoint is no longer active.
  2. Running the script again in debugging mode does not pause prior to
     executing this block.
+
+
+## Requirement 4: Pause/step across asynchronous calls
+
+### Setup
+
+Load a script with an asynchronous context block, such as a "when my
+location changes", or "when key pressed". Within this context should be
+a least one set or context block. To make testing more deterministic,
+place a pausepoint on this block within the asynchronous context block
+of choice.
+
+[Example Script](http://waterbearlang.com/playground.html?gist=03b68ac36f82730aa225)
+
+### Preconditions
+
+Execution is *started*.
+
+### Test
+
+ 1. Trigger the asynchronous event. In the case of "when key pressed",
+    press the appropriate key for the context block.
+
+### Acceptance Criteria
+
+ 1. Execution should now be _paused_.
+ 2. The block on which execution should be paused (see [1][]) on should
+    be the block on which the pausepoint was placed. That is, the block
+    within the asynchronous context block.
+
+
+[1]: #requirement-1-pause-execution
+[2a]: #requirement-2a-single-step-through-blocks-execution-stopped
+[3a]: #requirement-3a-set-a-pausepoint-breakpoint-on-a-selected-block
 
 
 # Glossary
@@ -188,9 +227,11 @@ is to start running. Stepping from the stopped state
 <dt> pausepoint </dt>
 <dd> An indicator that can be placed on a step or a context block. This
 indicator signifies that execution should pause just prior to executing
-the indicated block. In common debugging discourse, this is known as
-a _[breakpoint](http://en.wikipedia.org/wiki/Breakpoint)_, but the term
-_pausepoint_ has been deemed more welcoming and intuitive to newcomers.
+the indicated block. In popular debugging discourse, this is known as
+a <em><a
+href="http://en.wikipedia.org/wiki/Breakpoint">breakpoint</a></em>, but
+the term <em>pausepoint</em> has been deemed more welcoming and intuitive to
+newcomers.
 </dd>
 </dl>
 
