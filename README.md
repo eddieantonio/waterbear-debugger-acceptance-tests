@@ -254,9 +254,12 @@ Execution is *started*.
 
 ### Setup
 
-Load a script 
+Load a script with several continuously running (within some kind of
+loop) blocks. For this demonstration to be obvious, each step in the
+loop must have some noticeable side-effect. For example, the given
+example script updates the screen.
 
-[Example Script](http://waterbearlang.com/playground.html?gist=03b68ac36f82730aa225)
+[Example Script](http://waterbearlang.com/playground.html?gist=32f2a8f1bff8c267fec6!)
 
 ### Preconditions
 
@@ -264,33 +267,49 @@ Execution is *started*.
 
 ### Test
 
- 1. 
+ 1. Give the input to slow down the script. For non-mobile users, this
+    has been tentativly chosen as keeping shift pressed.
 
 ### Acceptance Criteria
 
- 1. 
+ 1. Execution of each block should be clearly visible, with some kind of
+    visible indication of which block is next to execute.
+ 2. The actions of the blocks should be clearly visible. In the given
+    example, script, the Astro-Waterbear should rotate at a
+    significantly slower pace (such as two seconds per animation frame).
+
+### Note
+
+The exact slow down has not been specified, though it is informally
+understood as being slow enough that the user would be able to see the
+action of each step block.
 
 
 ## Requirement 8: Dynamically add elements when paused
 
 ### Setup
 
-Load a script 
+Load a script with multiple step or context blocks. To ease
+demonstration, place a pausepoint on a block—preferably in a looping
+context. With the pausepoint in place, run the script until it is
+paused on this block.
 
-[Example Script](http://waterbearlang.com/playground.html?gist=03b68ac36f82730aa225)
+[Example Script](http://waterbearlang.com/playground.html?gist=586d2a0d5f629114285a)
 
 ### Preconditions
 
-Execution is *started*.
+Execution is *paused*.
 
 ### Test
 
- 1. 
+ 1. Drag a block into the script _after_ the block which is paused.
+ 2. Resume or step the execution.
 
 ### Acceptance Criteria
 
- 1. 
-
+ 1. The inserted block should have run. In the case of the given
+    example, if the block was a "set [keepRunning] to [false]" will stop
+    the infinite loop.
 
 # Glossary
 
