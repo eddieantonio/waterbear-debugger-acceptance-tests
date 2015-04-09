@@ -1,3 +1,7 @@
+---
+title: Waterbear Debugger Acceptance tests
+---
+
 # Acceptance tests!
 
 ## Feature list
@@ -313,7 +317,7 @@ Execution is *paused*.
 
 # Glossary
 
-![Execution States](./states.svg)
+![Execution States](http://waterbearlang.github.io/images/testing/states.svg)
 
 <dl>
 <dt>paused</dt>
