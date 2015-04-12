@@ -1,7 +1,3 @@
----
-title: Waterbear Debugger Acceptance tests
----
-
 # Acceptance tests!
 
 ## Feature list
@@ -9,18 +5,18 @@ title: Waterbear Debugger Acceptance tests
 These are sorted in order of relative priority.
 
  - [ ] Pause execution
-    - [ ] while Waterbear is running a continuous task (e.g., updating
+    - [x] while Waterbear is running a continuous task (e.g., updating
           the canvas)
  * [ ] Single-step through blocks
-    - [ ] Before execution has started
-    - [ ] When execution is paused.
+    - [x] Before execution has started
+    - [x] When execution is paused.
  * [ ] Set a breakpoint on a selected step blocks
      * [ ] Unset an existing breakpoint on a selected step blocks
  - [ ] Pause on breakpoints
- * [ ] Resume execution once paused
- * [ ] Pause/step across asynchronous calls -- though this isn't a thing the user should care about
+ * [x] Resume execution once paused
+ * [x] Pause/step across asynchronous calls -- though this isn't a thing the user should care about
  * [ ] Slow down script running if some input is active (e.g,. <kbd>shift</kbd> depressed)
- * [ ] Dynamically add elements when "paused"
+ * [x] Dynamically add elements when "paused"
  * [ ] Show how many times a line gets called
  * [ ] [Extra credit] Show the value variables as you step (like a table)
  * [ ] [Extra credit] Add a console (similar to the box in Xcode playgrounds)
