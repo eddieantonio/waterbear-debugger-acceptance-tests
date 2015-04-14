@@ -4,10 +4,10 @@
 
 These are sorted in order of relative priority.
 
- - [ ] Pause execution
+ - [x] Pause execution
     - [x] while Waterbear is running a continuous task (e.g., updating
           the canvas)
- * [ ] Single-step through blocks
+ * [x] Single-step through blocks
     - [x] Before execution has started
     - [x] When execution is paused.
  * [ ] Set a breakpoint on a selected step blocks
@@ -93,8 +93,7 @@ Execution is *stopped*.
  1. Execution is started and is immediately paused on the _first_ step
     block -- whatever that may be. In the case of this test input, it is
     the first block in the drawing context.
- 2. Indicators as in [1][], using the
-    first block in the script.
+ 2. Indicators as in [1][], using the first block in the script.
 
 ## Requirement 2b: Single-step through blocks (execution paused)
 
